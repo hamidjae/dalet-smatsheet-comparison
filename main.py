@@ -30,10 +30,57 @@ def store_series_form():
         "xshort": store_entry(SeriesXShort_text),
         "tiny": store_entry(SeriesTiny_text),
         "seo_keywords": store_entry(SeriesSEO_text),
-        "expected_duration": store_entry(seriesTitle_text),
+        "expected_duration": store_entry(seriesTitle_Durationtext),
     }
     write_to_csv(row)
     print("Saved Series Form")
+
+def store_season_form():
+    row={
+        "form_type": "season",
+        "title/number": store_entry(seasonTitle_text),
+        "long": store_entry(SeasonLong_text),
+        "medium": store_entry(SeasonMedium_text),
+        "short": store_entry(SeasonShort_text),
+        "xshort": store_entry(SeasonXShort_text),
+        "tiny": store_entry(SeasonTiny_text),
+        "seo_keywords": store_entry(SeasonSEO_text),
+    }
+    write_to_csv(row)
+    print("Saved Season Form")
+
+def store_episode_form():
+    row={
+        "form_type": "episode",
+        "title/number": store_entry(episodeTitle_text),
+        "short title": store_entry(episodeShortTitle_text),
+        "sort title": store_entry(episodeSortTitle_text),
+        "long": store_entry(episodeLong_text),
+        "medium": store_entry(episodeMedium_text),
+        "short": store_entry(episodeShort_text),
+        "xshort": store_entry(episodeXShort_text),
+        "tiny": store_entry(episodeTiny_text),
+        "seo_keywords": store_entry(episodeSEO_text),
+        "expected_duration": store_entry(episodeDuration_text),
+    }
+    write_to_csv(row)
+    print("Saved Season Form")
+
+def store_extra_form():
+    row={
+        "form_type": "extra",
+        "title/number": store_entry(extraTitle_text),
+        "short title": store_entry(extraShortTitle_text),
+        "sort title": store_entry(extraSortTitle_text),
+        "long": store_entry(extraLong_text),
+        "medium": store_entry(extraMedium_text),
+        "short": store_entry(extraShort_text),
+        "xshort": store_entry(extraXShort_text),
+        "tiny": store_entry(extraTiny_text),
+        "expected_duration": store_entry(extraDuration_text),
+    }
+    write_to_csv(row)
+    print("Saved Season Form")
 
 def write_to_csv(dictionary):
     with CSV_FILE.open("a", newline="", encoding="utf-8") as f:
@@ -143,7 +190,7 @@ SeasonTiny_text.grid(column=1, row=5)
 ttk.Label(seasonView, text="SEO Keywords").grid(column=0, row=6, sticky="w")
 SeasonSEO_text = Text(seasonView, width=60, height=2, wrap="word")
 SeasonSEO_text.grid(column=1, row=6)
-
+add_save_button(seasonView, 7, store_season_form)
 
 #Episode Form
 ttk.Label(episodeView, text="Title").grid(column=0, row=0, sticky="w")
@@ -183,44 +230,46 @@ episodeSEO_text = Text(episodeView, width=60, height=2, wrap="word")
 episodeSEO_text.grid(column=1, row=8)
 
 ttk.Label(episodeView, text="Expected Duration").grid(column=0, row=9, sticky="w")
-episodeTitle_text = Text(episodeView, height=2, width=60)
-episodeTitle_text.grid(column=1, row=9, sticky="nsew")
+episodeDuration_text = Text(episodeView, height=2, width=60)
+episodeDuration_text.grid(column=1, row=9, sticky="nsew")
+add_save_button(episodeView, 10, store_episode_form)
 
 #Extra Form
 ttk.Label(extraView, text="Title").grid(column=0, row=0, sticky="w")
-episodeTitle_text = Text(extraView, height=2, width=60)
-episodeTitle_text.grid(column=1, row=0, sticky="nsew")
+extraTitle_text = Text(extraView, height=2, width=60)
+extraTitle_text.grid(column=1, row=0, sticky="nsew")
 
 ttk.Label(extraView, text="Short Title (25 chars)").grid(column=0, row=1, sticky="w")
-episodeShortTitle_text = Text(extraView, height=2, width=60, wrap="word")
-episodeShortTitle_text.grid(column=1, row=1)
+extraShortTitle_text = Text(extraView, height=2, width=60, wrap="word")
+extraShortTitle_text.grid(column=1, row=1)
 
 ttk.Label(extraView, text="Sort Title").grid(column=0, row=2, sticky="w")
-episodeSortTitle_text = Text(extraView, height = 2, width=60)
-episodeSortTitle_text.grid(column = 1, row = 2)
+extraSortTitle_text = Text(extraView, height = 2, width=60)
+extraSortTitle_text.grid(column = 1, row = 2)
 
 ttk.Label(extraView, text="Long (1000 chars)").grid(column=0, row=3, sticky="w")
-episodeLong_text = Text(extraView, width=60, height=11, wrap="word")
-episodeLong_text.grid(column=1, row=3)
+extraLong_text = Text(extraView, width=60, height=11, wrap="word")
+extraLong_text.grid(column=1, row=3)
 
 ttk.Label(extraView, text="Medium (250 chars)").grid(column=0, row=4, sticky="w")
-episodeMedium_text = Text(extraView, width=60, height=5, wrap="word")
-episodeMedium_text.grid(column=1, row=4)
+extraMedium_text = Text(extraView, width=60, height=5, wrap="word")
+extraMedium_text.grid(column=1, row=4)
 
 ttk.Label(extraView, text="Short (99 chars)").grid(column=0, row=5, sticky="w")
-episodeShort_text = Text(extraView, width=60, height=4, wrap="word")
-episodeShort_text.grid(column=1, row=5)
+extraShort_text = Text(extraView, width=60, height=4, wrap="word")
+extraShort_text.grid(column=1, row=5)
 
 ttk.Label(extraView, text="XShort (60 chars)").grid(column=0, row=6, sticky="w")
-episodeXShort_text = Text(extraView, width=60, height=3, wrap="word")
-episodeXShort_text.grid(column=1, row=6)
+extraXShort_text = Text(extraView, width=60, height=3, wrap="word")
+extraXShort_text.grid(column=1, row=6)
 
 ttk.Label(extraView, text="Tiny (40 chars)").grid(column=0, row=7, sticky="w")
-episodeTiny_text = Text(extraView, width=60, height=2, wrap="word")
-episodeTiny_text.grid(column=1, row=7)
+extraTiny_text = Text(extraView, width=60, height=2, wrap="word")
+extraTiny_text.grid(column=1, row=7)
 
 ttk.Label(extraView, text="Expected Duration").grid(column=0, row=8, sticky="w")
-extraTitle_text = Text(extraView, height=2, width=60)
-extraTitle_text.grid(column=1, row=8, sticky="nsew")
+extraDuration_text = Text(extraView, height=2, width=60)
+extraDuration_text.grid(column=1, row=8, sticky="nsew")
+add_save_button(extraView, 9, store_extra_form)
 
 root.mainloop()
