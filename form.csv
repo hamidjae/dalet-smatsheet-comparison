@@ -1,44 +1,12 @@
-form_type,series
-title,a
-short_title,aa
-sort_title,aaa
-long,aaaa
-medium,aaaaa
-short,aaaaaa
-xshort,aaaaaaa
-tiny,aaaaaaaa
-seo_keywords,aaaaaaaaa
-expected_duration,hh:mm:ss
-
-form_type,season
-title/number,b
-long,bb
-medium,bbb
-short,bbbb
-xshort,bbbbb
-tiny,bbbbbb
-seo_keywords,bbbbbbb
-
-form_type,episode
-title/number,c
-short title,cc
-sort title,ccc
-long,cccc
-medium,ccccc
-short,cccccc
-xshort,ccccccc
-tiny,cccccccc
-seo_keywords,ccccccccc
-expected_duration,cccccccccc
-
 form_type,extra
-title/number,d
-short title,dd
-sort title,ddd
-long,dddd
-medium,ddddd
-short,dddddd
-xshort,ddddddd
-tiny,dddddddd
-expected_duration,ddddddddd
+title/number,a
+short_title,
+sort_title,
+youtube_title,
+long,
+medium,
+short,
+xshort,
+tiny,
+expected_duration,hh:mm:ss
 
